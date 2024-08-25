@@ -91,8 +91,16 @@
     /* transform: scale(1); */
   }
 }
+@keyframes slide {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+}
 html {
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
   color: #e2ffff;
   height: 100vh;
   width: 100vw;
@@ -224,7 +232,7 @@ main {
     padding: 3px;
     border-radius: 50%;
     transition: 0.3s ease;
-    svg{
+    svg {
       fill: #5bc0be;
     }
   }
@@ -232,7 +240,7 @@ main {
     transform: scale(1.2) translateY(-5px);
     box-shadow: 0 0 10px #e2ffff;
     background-color: #5bc0be;
-    svg{
+    svg {
       fill: black;
     }
   }
@@ -294,7 +302,7 @@ main {
   }
   &:hover {
     transform: scale(1.1);
-  } 
+  }
 }
 .about-img img {
   width: 100%;
@@ -305,7 +313,7 @@ main {
   transition: 0.4s ease;
   animation: appear-scale ease-in-out;
   animation-timeline: view();
-  animation-range: entry 0% cover 30%; 
+  animation-range: entry 0% cover 30%;
 }
 .about-content-me {
   font-size: 4rem;
@@ -450,7 +458,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .contact-head p{
+  .contact-head p {
     font-size: 5rem;
     transition: 0.3s ease;
     animation: appear-scale linear;
@@ -473,16 +481,15 @@ main {
     margin: 4rem auto;
     text-align: center;
   }
-  .contact-form .inputbox{
+  .contact-form .inputbox {
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
     position: relative;
-    
   }
-  .contact-form  input,
-  .contact-form  textarea{
+  .contact-form input,
+  .contact-form textarea {
     width: 100%;
     padding: 1.1rem;
     font-size: 2vmin;
@@ -491,50 +498,117 @@ main {
     border: 2px solid #5bc0be;
     border-radius: 20px;
     margin: 1vmin 0;
-  
+    transition: 1s ease;
   }
-  .contact-form input , textarea{
+  .contact-form input,
+  textarea {
     &:hover {
       box-shadow: 0 0 10px #5bc0be;
     }
-    &:focus{
+    &:focus {
       border: 3px solid #37ff00;
       outline: none;
     }
-    &:focus ~ label
-    {
+    &:focus ~ label {
       left: 25px;
       top: 8px;
       padding: 0 10px;
       background: #14192b;
       border-radius: 50px;
     }
-
   }
-  .input-label{
+  .input-label {
     position: relative;
-    label{
+    label {
       position: absolute;
       left: 20px;
       top: 50%;
       transform: translateY(-50%);
     }
-
-
   }
-  .contact-submit-btn{
+  .contact-submit-btn {
     margin-top: 0.5rem;
     background: #5bc0be;
     padding: 2vmin 2rem;
     border-radius: 50px;
     box-shadow: 0 0 10px #00ffd5;
-    font-size:1rem ;
+    font-size: 1rem;
     color: #000000;
     font-weight: bold;
-    &:hover{
+    &:hover {
       background-color: #499190;
       border: 3px solid #0b132b;
     }
   }
+}
+.work-content-title {
+  margin: 1rem auto;
+  font-size: 4rem;
+  color: #5bc0be;
+  transition: 0.3s ease;
+  width: max-content;
+  animation: appear-scale linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40% ;
+}
+.work-content {
+  box-sizing: border-box;
+}
+.work-content-slides {
+  position: relative;
 
+  left: 0;
+  white-space: nowrap;
+  box-sizing: border-box;
+  animation: slide 7s linear alternate infinite;
+  &:hover{
+    animation-play-state: paused;
+  }
+}
+.work-slide {
+  position: relative;
+
+  left: 0;
+  display: inline-block;
+  height: auto;
+  max-width: 250px;
+  white-space: wrap;
+  text-align: center;
+  border: 2px solid #5bc0be;
+  border-radius: 40px;
+  margin: 2rem 1rem;  
+  flex-direction: column;
+  padding: 10px;
+  &:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00ffd5;
+    
+  }
+  img {
+    margin: 10px 0;
+    max-width: 90%;
+    height: 80%;
+    overflow: hidden;
+    object-fit: cover;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin: 10px 10px;
+    height: 2rem;
+  }
+  p {
+    margin: 1rem 10px;
+    font-size: 1rem;
+    height: 6rem;
+  }
+  button{
+    margin: 1rem 10px;
+    padding: 0.7rem 3rem;
+    border-radius: 50px;
+    background-color: #5bc0be;
+    &:focus{
+      outline: none;
+      background-color: #499190;
+    }
+  }
 }
