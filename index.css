@@ -106,10 +106,11 @@
 html {
   scroll-behavior: smooth;
   color: #e2ffff;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow-x: hidden;
   font-family: "Moderustic", sans-serif;
+  display: block;
 }
 body {
   background-color: #1c2541;
@@ -119,7 +120,7 @@ body {
 }
 .navbar {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   left: 0px;
   top: 0px;
   display: flex;
@@ -168,24 +169,24 @@ body {
   }
 }
 main {
-  margin-top: 15vmin;
+  margin-top: 12vmin;
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  width: 100%;
 }
 .main-content {
   margin: 3vmin;
   gap: 5px;
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   flex-direction: column;
   align-items: center;
   h1 {
     color: white;
     font-size: 3rem;
-    font-family: "Copyduck";
+    font-family: "copyduck";
   }
   h1 :hover {
     transform: scale(1.2);
@@ -194,6 +195,7 @@ main {
   h3 {
     font-size: 1.5rem;
     transition: 0.2s ease;
+    max-width: 500px;
     &:hover {
       transform: scaleX(1.2) scaleY(1.09);
     }
@@ -202,6 +204,7 @@ main {
     color: #5bc0be;
   }
   p {
+    width: 800px;
     text-align: center;
     transition: 0.3s ease;
     &:hover {
@@ -569,16 +572,27 @@ main {
 }
 .work-content {
   box-sizing: border-box;
+
+  ::-webkit-scrollbar-thumb{
+    background-color: #5bc0be;
+    height: 10px;
+    width: 2rem;
+    border-radius: 20px;
+  }
 }
 .work-content-slides {
   white-space: nowrap;
   box-sizing: border-box;
-  animation: slide 8s linear infinite;
+  overflow-x:auto ;
   &:hover {
-    animation-play-state: paused;
+    .work-slide{
+      animation-play-state: paused;
+    }
   }
 }
+
 .work-slide {
+  animation: slide 8s linear infinite;
   height: 400px;
   display: inline-block;
   height: auto;
@@ -593,16 +607,18 @@ main {
   &:hover {
     transform: scale(1.1);
     box-shadow: 0 0 10px #00ffd5;
+    animation-play-state: paused;
   }
   a {
     text-decoration: none;
     color: #111;
     font-weight: 700;
   }
+  
   img {
     margin: 10px 0;
     max-width: 90%;
-    height: 80%;
+    height: 150px;
     overflow: hidden;
     object-fit: cover;
   }
